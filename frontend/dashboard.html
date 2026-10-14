@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | SecurePersona AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body class="dashboard-body">
+  <aside class="sidebar">
+    <a class="brand" href="index.html"><span class="brand-icon">S</span> SecurePersona <span class="accent">AI</span></a>
+    <p class="sidebar-label">WORKSPACE</p>
+    <a class="side-link active" href="#overview">▦ Overview</a>
+    <a class="side-link" href="#analyzer">◈ Security analyzer</a>
+    <a class="side-link" href="#simulator">⟳ What-If simulator</a>
+    <a class="side-link" href="#history">◷ Analysis history</a>
+    <a class="side-link" href="#alerts">⚑ Alerts</a>
+    <div class="sidebar-bottom"><span class="status-dot"></span> Local protection engine<br><small>Prototype mode</small></div>
+  </aside>
+
+  <main class="dashboard-main">
+    <header class="topbar">
+      <div><span class="muted">WORKSPACE / </span> Overview<h1>Security dashboard</h1></div>
+      <div class="user-area"><span id="userName">User</span><button id="logoutButton" class="btn btn-secondary">Log out</button></div>
+    </header>
+
+    <section id="overview" class="welcome-banner">
+      <div><span class="eyebrow">ADAPTIVE DATA PROTECTION</span><h2>Welcome back, <span id="welcomeName">User</span></h2><p>Analyze activity and understand the factors behind each security decision.</p></div>
+      <span class="banner-shield">⬡</span>
+    </section>
+
+    <section class="stat-grid">
+      <article class="stat-card"><span class="stat-label">Total analyses</span><strong id="totalAnalyses">0</strong><small>Saved to your history</small></article>
+      <article class="stat-card"><span class="stat-label">High-risk events</span><strong id="highRiskCount">0</strong><small>Risk score of 60 or higher</small></article>
+      <article class="stat-card"><span class="stat-label">Blocked transfers</span><strong id="blockedCount">0</strong><small>Blocked by the policy engine</small></article>
+      <article class="stat-card"><span class="stat-label">Open alerts</span><strong id="openAlerts">0</strong><small>Unread security alerts</small></article>
+    </section>
+
+    <section id="analyzer" class="content-card">
+      <div class="section-heading"><div><span class="eyebrow">LIVE ANALYSIS</span><h2>Security analyzer</h2><p class="muted">Submit sample content to evaluate its risk and DLP decision.</p></div><span class="tag tag-blue">ENGINE READY</span></div>
+      <form id="analysisForm">
+        <div class="form-grid">
+          <div><label for="source">Data source</label><select id="source"><option>User Input</option><option>Company Document</option><option>Internal System</option><option>Customer Record</option></select></div>
+          <div><label for="action">Activity</label><select id="action"><option>Send</option><option>Share</option><option>Upload</option><option>Copy</option><option>Download</option><option>View</option></select></div>
+          <div><label for="destination">Destination</label><select id="destination"><option>External Website</option><option>External AI</option><option>Public Platform</option><option>External Email</option><option>Company Cloud</option><option>Internal System</option></select></div>
+        </div>
+        <label for="content">Content to inspect</label>
+        <textarea id="content" rows="5" maxlength="50000" placeholder="Enter fictional text for analysis. Example: Contact alex@example.com about the report." required></textarea>
+        <div class="form-footer"><small>Up to 50,000 characters. Use fictional data only.</small><button id="analyzeButton" class="btn btn-primary" type="submit">Analyze activity →</button></div>
+      </form>
+      <div id="analysisMessage" class="message" role="status" aria-live="polite"></div>
+      <div id="analysisResult" class="result-panel" hidden>
+        <div class="result-header"><div><span class="eyebrow">ANALYSIS RESULT</span><h2 id="decisionTitle">Decision</h2></div><span id="decisionTag" class="tag">RESULT</span></div>
+        <div class="result-metrics">
+          <div><small>RISK SCORE</small><strong id="riskScore">—</strong><div class="meter"><span id="riskMeter"></span></div></div>
+          <div><small>SECURITY PERSONA</small><strong id="personaResult">—</strong></div>
+          <div><small>TRUST SCORE</small><strong id="trustScore">—</strong></div>
+        </div>
+        <h3>Detected sensitive data</h3><div id="detectedData" class="chip-list"></div>
+        <h3>Why was this decision made?</h3><ul id="reasonList" class="reason-list"></ul>
+        <h3>Protected content</h3><pre id="protectedContent" class="protected-content"></pre>
+        <p id="dlpAction" class="muted"></p>
+      </div>
+    </section>
+
+    <section id="simulator" class="content-card">
+      <div class="section-heading"><div><span class="eyebrow">SCENARIO TESTING</span><h2>What-If security simulator</h2><p class="muted">Compare hypothetical destinations without saving the simulation to history.</p></div></div>
+      <form id="simulationForm">
+        <label for="simContent">Sample content</label>
+        <textarea id="simContent" rows="3" placeholder="Enter fictional content to test." required></textarea>
+        <div class="form-grid">
+          <div><label for="simAction">Activity</label><select id="simAction"><option>Send</option><option>Share</option><option>Upload</option><option>Copy</option><option>View</option></select></div>
+          <div><label for="simDestination">Destination</label><select id="simDestination"><option>External AI</option><option>External Website</option><option>External Email</option><option>Company Cloud</option><option>Internal System</option></select></div>
+        </div>
+        <button class="btn btn-secondary" type="submit">Simulate scenario</button>
+      </form>
+      <div id="simulationResult" class="simulation-result" aria-live="polite"></div>
+    </section>
+
+    <section id="history" class="content-card">
+      <div class="section-heading"><div><span class="eyebrow">RECENT ACTIVITY</span><h2>Analysis history</h2></div><button id="refreshButton" class="btn btn-secondary" type="button">Refresh</button></div>
+      <div class="table-wrap"><table><thead><tr><th>Time</th><th>Persona</th><th>Risk</th><th>Decision</th></tr></thead><tbody id="historyBody"><tr><td colspan="4">Loading history…</td></tr></tbody></table></div>
+    </section>
+
+    <section id="alerts" class="content-card">
+      <div class="section-heading"><div><span class="eyebrow">SECURITY EVENTS</span><h2>Alerts</h2></div></div>
+      <div id="alertsList" class="alerts-list">Loading alerts…</div>
+    </section>
+    <footer class="dashboard-footer">SecurePersona AI · Local academic prototype · Not a production security product</footer>
+  </main>
+</body>
+</html>

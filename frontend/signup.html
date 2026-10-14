@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create account | SecurePersona AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script src="js/signup.js" defer></script>
+</head>
+<body class="auth-body">
+  <a class="auth-brand" href="index.html"><span class="brand-icon">S</span> SecurePersona <span class="accent">AI</span></a>
+  <main class="auth-layout">
+    <section class="auth-intro">
+      <span class="eyebrow">YOUR SECURITY WORKSPACE</span>
+      <h1>Make every data-sharing decision <span class="gradient-text">smarter.</span></h1>
+      <p>Create an account to analyze sample content, inspect risk explanations, and review your security activity.</p>
+      <div class="intro-point">✓ Context-aware risk analysis</div>
+      <div class="intro-point">✓ Data anonymization and blocking</div>
+      <div class="intro-point">✓ Analysis history and alerts</div>
+    </section>
+    <section class="auth-card">
+      <h2>Create your account</h2>
+      <p class="muted">Start with your details below.</p>
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+      <form id="signupForm">
+        <label for="full_name">Full name</label>
+        <input id="full_name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required>
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required>
+        <label for="confirm_password">Confirm password</label>
+        <input id="confirm_password" name="confirm_password" type="password" placeholder="Enter password again" autocomplete="new-password" required>
+        <label class="check-row"><input id="terms" type="checkbox"> I agree to use this prototype responsibly.</label>
+        <button id="signupButton" class="btn btn-primary btn-full" type="submit">Create account →</button>
+      </form>
+      <p class="auth-switch">Already registered? <a href="login.html">Log in</a></p>
+      <p class="security-note">Use fictional sample data for testing. Do not submit real passwords or financial details.</p>
+    </section>
+  </main>
+</body>
+</html>

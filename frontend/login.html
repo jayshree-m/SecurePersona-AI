@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in | SecurePersona AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script src="js/login.js" defer></script>
+</head>
+<body class="auth-body">
+  <a class="auth-brand" href="index.html"><span class="brand-icon">S</span> SecurePersona <span class="accent">AI</span></a>
+  <main class="auth-layout">
+    <section class="auth-intro">
+      <span class="eyebrow">SECURITY INTELLIGENCE</span>
+      <h1>Your data deserves <span class="gradient-text">intelligent protection.</span></h1>
+      <p>Sign in to inspect activity, review security decisions, and test data-protection scenarios.</p>
+      <div class="intro-point">✓ Persona and risk assessment</div>
+      <div class="intro-point">✓ Explainable DLP decisions</div>
+      <div class="intro-point">✓ Personal activity history</div>
+    </section>
+    <section class="auth-card">
+      <h2>Welcome back</h2>
+      <p class="muted">Log in to your SecurePersona workspace.</p>
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+      <form id="loginForm">
+        <label for="email">Email address</label>
+        <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+        <button id="loginButton" class="btn btn-primary btn-full" type="submit">Log in securely →</button>
+      </form>
+      <p class="auth-switch">New to SecurePersona? <a href="signup.html">Create an account</a></p>
+      <p class="security-note">This is a local academic prototype. It does not provide production-grade authentication yet.</p>
+    </section>
+  </main>
+</body>
+</html>
