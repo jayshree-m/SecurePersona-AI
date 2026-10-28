@@ -37,18 +37,5 @@ Make sure you have Python installed on your system.
 python --version
 
 
-📸 Project Screenshots
-
-1. SecurePersona AI Dashboard
-[SecurePersona AI Dashboard]
-
-2. AI Security Analysis
-[AI Security Analysis]
-
-3. Risk Detection Results
-[Risk Detection Results]
-
-4. Alerts and History
-[Alerts and History]
 
  
